@@ -1,0 +1,86 @@
+sudo apt install package_name
+
+
+sudo apt list
+sudo apt list | grep package_name
+sudo apt list --installed
+sudo apt list --upgradeable
+
+To remove the unneeded dependencies use the following command:
+sudo apt autoremove
+
+sudo apt remove package_name
+sudo apt remove package_name1 package_name2
+sudo apt purge package_name
+
+
+sudo apt search package_name
+sudo apt show package_name
+
+
+
+
+
+
+=================================================================
+These operations are performed using the following commands:
+
+adduser: add a user to the system.
+
+userdel: delete a user account and related files.
+
+addgroup: add a group to the system.
+
+delgroup: remove a group from the system.
+
+usermod: modify a user account.
+
+chage: change user password expiry information.
+
+sudo: run one or more commands as another user (typically with superuser permissions).
+
+Relevant files: /etc/passwd (user information), /etc/shadow (encrypted passwords), /etc/group (group information) and /etc/sudoers (configuration for sudo).
+=================================================================
+which sudo
+apt-get install sudo
+
+In visudo
+pluralsight ALL=(ALL) ALL
+
+To change the home directory to /Users/student (this directory must exist), use the --home (or its short equivalent -d) option:
+
+sudo usermod --home /Users/student student
+
+sudo usermod --shell /bin/sh student
+
+sudo usermod --comment "Account used for Pluralsight guide" student
+
+sudo usermod --home /Users/student --shell /bin/sh --comment "Account used for Pluralsight guide" student
+
+------------------------------------------------------------------
+To set the expiration date of student to October 31, 2017, do
+sudo usermod --expire-date 2017-10-31 student
+The changes can then be viewed with
+sudo chage -l student
+
+For example, to force student to change his password every 60 days, do:
+sudo chage --maxdays 60 student
+-------------------------------------------------
+sudo userdel -r  
+along with user files
+
+-----------------------------------------------------
+addgroup finances
+delgroup finances
+
+---------------------------------------------------------
+To run a process in the background without getting impacted by the closing of the terminal.
+
+nohup sleep 100 &
+
+
+
+
+
+
+

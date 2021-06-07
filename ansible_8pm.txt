@@ -1,0 +1,285 @@
+
+Syntax of Adhoc commands
+--------------------------------------
+ansible all/ipaddress/group_name  -i path_of_inventory -m module_name 
+                                                            -a '          ' 
+
+
+Command Module
+==================
+Ansible command to see the memory information of all managed nodes
+ansible all -i /etc/ansible/hosts -m command -a 'free m'
+
+/etc/ansible/hosts is the default inventory file and when using it
+we need not give -i
+ansible all  -m command -a 'free m'
+
+command module is the default module os ansible and we need not  use
+-m option when working on command module
+ansible all   -a 'free m'
+
+====================================================================
+Shell Module
+-----------------
+Ansible commands to downlaod the docker script and execute it to install docker
+ansible all -m shell -a ' curl -fsSL https://get.docker.com -o get-docker.sh'
+
+ansible all -m shell -a 'sh get-docker.sh'
+
+--------------------------------------------------------------------------
+Ansible command to capture memory statics into a file called as file1
+ansible all -m shell -a 'free -m > file1'
+
+=====================================================================
+User Module
+=================
+Ansible command to create a user and assign a password
+ansible all -m user -a 'name=sai password=intelliqit' -b
+
+Ansible command to create a user,assign home dir,default shell
+uid,comment etc
+ ansible all -m user -a 'name=Anu password=intelliqit 
+          home=/home/ubuntu/Anu uid=12345 shell=/bin/bash 
+                                     comment="A normal user"' -b
+
+-------------------------------------------------------------------
+Ansible command to create file on all managed nodes
+ansible all -m file -a 'name=/tmp/file1 state=touch'
+
+state=touch    create files
+state=directory creates directories
+state=absent    delete files/directories
+
+========================================================================
+Day 3
+===========================================================================
+Ansible command to create file and also specify the owner,group owner
+and permissions
+ansible all -m file -a 'name=/tmp/file1 state=touch owner=sai 
+                                                group=Anu mode=750' -b
+
+
+===========================================================================
+Ansible command to copy /etc/passwd file to all managed nodes
+ ansible all -m copy -a 'src=/etc/passwd dest=/tmp'
+
+Create a chain of directories on the controller and copy all that to
+the managed nodes
+mkdir -p d1/d2/d3/d4/d5
+ansible all -m copy -a 'src=d1 dest=/home/ubuntu'
+
+Copy module can also change the permissions,ownership and group ownership
+of files that are copied
+ansible all -m copy -a 'src=file1 dest=/tmp owner=root 
+                                                  group=sai mode=700' -b
+
+=========================================================================
+Ansible command to install git on all managed nodes
+ansible all -m apt -a 'name=git state=present' -b
+
+state=present is for installation
+state=absent is for uninstallation
+state=latest  is for upgrading to a later version
+
+To update the apt repository we can use
+update_cache-yes
+Ansible command to install tomcat9 after updating the apt repository
+ansible all -m apt -a 'name=tomcat9 state=present update_cache=yes' -b
+
+========================================================================
+Service module
+===================
+Ansible command to restart tomcat on all managed nodes
+ ansible all -m service -a 'name=tomcat9 state=restarted' -b
+
+state=restarted is for restarting
+state=stopped is for stopping
+state=started is for starting 
+
+========================================================================
+Fetch Module
+=====================
+Ansible command to copy /etc/group file from all managed nodes to controller
+ ansible all -m fetch -a 'src=/etc/group dest=/tmp'
+
+==========================================================================
+Git Module
+================
+Ansible command to clone a remote git repository into all managed nodes
+ansible all -m git -a 'repo=https://github.com/intelliqittrainings/maven.git                                                      dest=/tmp/git'
+
+
+==========================================================
+ansible all -m command -a 'uptime' 
+---
+- name: uptime
+  hosts: all
+  tasks:
+   - name: uptime module
+     command: uptime
+   
+...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

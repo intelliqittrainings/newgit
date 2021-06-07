@@ -1,0 +1,407 @@
+Python Session 1
+=======================================================================
+
+# Script to print statements
+print("Hello Python")
+print('How r u')
+print("Let's go for lunch")
+print('He said,"I am busy today"')
+print('He said,"Let\'s go for lunch"')
+print("He said,\"Let's go for lunch\"")
+
+======================================================================
+Single line comments start with #
+
+Multiple line comments can start with '''  and end with '''
+(or) start """ and end with """
+
+=========================================================================
+#Adddition and Concatination
+print(2+5)
+print("Hello"+"Python")
+print("Hi"+"5")
+print("hi"+str(5))
+print("8"+"5")
+print("8"+str(5))
+print(int("8")+5)
+print("Hello","Python")
+print("Hi",5)
+
+======================================================================
+#Swapping two numbers using a third varibale
+a = 10
+b = 20
+c = a
+a = b
+b = c
+print(a)
+print(b)
+
+#Swapping two numbers without using a third variable
+a = 10
+b = 20
+a = a + b
+b = a - b
+a = a -b
+print(a)
+print(b) 
+
+=======================================================================
+
+#if conditions
+#Program to find the smallest of 3 numbers
+a = 10
+b = 20
+c= 5
+if a < b and a < c:
+    print("a is the smallest ")
+elif b < c:
+    print("b is the smallest")
+else:
+    print("c is the smallest")
+print("Program finished")
+
+========================================================================
+Loops
+=================
+#Program to display the even numbers between 1-10
+i = 2
+while i <= 10:
+    print(i)
+    i = i + 2
+
+==========================================================================
+#Program to display the 2 tables
+i = 1
+while i <= 10:
+    print(2,"*",i,"=",2*i)
+    i = i + 1
+
+=========================================================================
+#Program to display all 10 tables
+
+i = 1
+while i <= 10:
+    j = 1
+    while j <= 10:
+        print(i,"*",j,"=",i*j)
+        j = j + 1
+    i = i + 1
+
+======================================================================
+Python Session 2
+================================================================
+For Loops
+----------------
+a=[1,4,6,9,10]
+for i in a:
+    print(i)
+
+tools=["Docker","Jenkins","Git","Ansible"]
+for x in tools:
+    print(x)
+
+===============================================================
+#To display the sum of numbers in a list
+numbers=[10,50,90,40,60]
+sum = 0
+for i in numbers:
+    sum = sum + i
+    
+print("The total sum of numbers is: ",sum)
+
+===================================================================
+#To find the max number in a list
+numbers=[10,50,90,40,60]
+max = 0
+for i in numbers:
+    if max < i:
+        max = i
+
+print("The maximum number in the list is :",max)
+
+==================================================================
+#Program to find the number of even and odd
+numbers=[1,2,3,4,5,6,7,8,9,10,11]
+even = 0
+odd = 0
+for i in numbers:
+    if i % 2 == 0:
+        even = even + 1
+        print("Even :",i)
+    else:
+        odd = odd + 1
+        print("Odd :"i)
+
+print("The even number count is :",even)
+print("The odd number count is :",odd)
+
+========================================================================
+Read Write operations on Files
+=======================================
+#To create a new file and write into it
+text ="\nThis is a python session"
+file=open("C:/Users/gandh/OneDrive/Desktop/file1.txt","w")
+file.write(text)
+
+#To append we can open in append mode using 'a'
+text ="\nThis is a python session"
+file=open("C:/Users/gandh/OneDrive/Desktop/file1.txt","a")
+file.write(text)
+
+#To read all the content of a file
+file=open("C:/Users/gandh/OneDrive/Desktop/file1.txt","r")
+text = file.read()
+print(text)
+
+#To read the content line by line
+file=open("C:/Users/gandh/OneDrive/Desktop/file1.txt","r")
+text = file.readlines()
+for x in text:
+    print(x)
+
+
+#To copy all the content of a file into another file
+file1=open("C:/Users/gandh/OneDrive/Desktop/file1.txt","r")
+file2=open("C:/Users/gandh/OneDrive/Desktop/file2.txt","w")
+text = file1.read()
+file2.write(text)
+
+
+#To copy alternate lines of code from one file to another
+file1=open("C:/Users/gandh/OneDrive/Desktop/file1.txt","r")
+file3=open("C:/Users/gandh/OneDrive/Desktop/file3.txt","a")
+text=file1.readlines()
+i = 0
+while i < len(text):
+    file3.write(text[i])
+    i = i + 2
+
+===================================================================\
+Functions in Python
+Functions are used to create reusable code
+
+def add(x,y):
+    print(x+y)
+
+def sub(x,y):
+    print(x-y)
+
+def mul(x,y):
+    print(x*y)
+
+def div(x,y):
+    print(x/y)
+
+add(7,8)
+add(100,200)
+mul(5,2)
+
+=========================================================================
+User defined function to copy the content of a file to another file
+def copy_file(srcfile,destfile):
+    file1=open(srcfile,'r')
+    file2=open(destfile,'w')
+    data = file1.read()
+    file2.write(data)
+
+copy_file("C:\\Users\\gandh\\OneDrive\\Desktop\\linux.txt","C:\\Users\\gandh\\OneDrive\\Desktop\\newlinux.txt")
+
+=============================================================================
+Classes and Objects
+----------------------------
+
+class Calculator:
+    def add(self,a,b):
+        print(a+b)
+    def sub(self,a,b):
+        print(a-b)
+    def mul(self,a,b):
+        print(a*b)
+    def div(self,a,b):
+        print(a/b)
+    def exp(self,a,b):
+        print(a**b)
+
+
+c = Calculator()
+c.mul(5,4)
+c.sub(10,9)
+
+
+==============================================================================
+Modules in Python
+------------------------
+Modules are code libraries
+
+import math
+import calendar
+
+a = math.sqrt(16)
+print(a)
+
+b = math.factorial(5)
+print(b)
+
+c = calendar.isleap(2020)
+print(c)
+d = calendar.month(2021,2)
+print(d)
+
+========================================================================
+===========================================================================
+Python docker integrations
+==================================
+
+Python script to download any image
+
+import subprocess
+
+image = input("Enter the image name: ")
+subprocess.call("docker pull %s"%(image),shell=True)
+
+=============================================================================
+PythonSession 3
+============================================================================
+import subprocess
+
+subprocess.call('docker rm -f $( docker container ls | grep catalina | cut -d " " -f 1)',shell=True)
+
+
+
+================================================================================
+import subprocess
+
+
+i = 1
+while i <= 10:
+    subprocess.call('docker network create --driver bridge intelliqit%d'%i,shell=True)
+    subprocess.call('docker run --name nginx%d -d -P --network intelliqit%d nginx'%(i,i),shell=True)
+    i = i + 1
+
+
+=============================================================================
+import subprocess
+
+subprocess.call("docker run --name mydb -d -e MYSQL_ROOT_PASSWORD=intelliqit mysql:5",shell=True)
+
+subprocess.call("docker run --name mywordpress -d -p 8888:80 --link mydb:mysql wordpress",shell=True)
+
+
+============================================================================
+import subprocess
+
+
+
+subprocess.call('docker container ls | grep catalina | cut -d " " -f 1 > file1',shell=True)
+
+container_ids=open("file1","r").readlines()
+
+i = 0
+
+while i < len(container_ids):
+    id = container_ids[i]
+    subprocess.call("docker rm -f %s"%id,shell=True)
+    i = i + 2
+
+
+
+==========================================================================
+
+import subprocess
+
+
+image = input("Enter image name: ")
+service = input("Enter some service name: ")
+ports = input("Enter the ports to be mapped: ")
+replicas= input("Enter the no of replicas: ")
+
+subprocess.call("docker service create --name %s -p %s --replicas %s %s"%(service,ports,replicas,image),shell=True)
+
+
+============================================================================
+import jenkins
+j=jenkins.Jenkins("http://localhost:8080","admin","admin")
+
+print(j.get_jobs())
+
+=================================================================
+import jenkins
+j=jenkins.Jenkins("http://localhost:8080","admin","admin")
+
+j.build_job("Development")
+
+===================================================================
+import jenkins
+j=jenkins.Jenkins("http://localhost:8080","admin","admin")
+
+j.create_job("SampleJob",jenkins.EMPTY_CONFIG_XML)
+
+
+==================================================================
+
+import jenkins
+j=jenkins.Jenkins("http://localhost:8080","admin","admin")
+
+j.copy_job("ScriptedPipeline","NewScriptedPipeline")
+
+=================================================================
+import jenkins
+j=jenkins.Jenkins("http://localhost:8080","admin","admin")
+
+
+
+i = 1
+while i <= 10:
+    j.create_job("Sample%d"%i,jenkins.EMPTY_CONFIG_XML)
+    i = i + 1
+
+=====================================================================
+import jenkins
+j=jenkins.Jenkins("http://localhost:8080","admin","admin")
+
+
+
+i = 1
+while i <= 10:
+    j.copy_job("Sample%d"%i,"NewSample%d"%i)
+    i = i + 1
+
+======================================================================
+import jenkins
+j=jenkins.Jenkins("http://localhost:8080","admin","admin")
+
+
+
+i = 1
+while i <= 10:
+    j.delete_job("Sample%d"%i)
+    i = i + 1
+
+
+=========================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
